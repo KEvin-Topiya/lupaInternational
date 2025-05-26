@@ -17,42 +17,98 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
+      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
       color: #ffffff;
       height: 100vh;
+      overflow: hidden;
+      position: relative;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       text-align: center;
     }
 
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,102,0,0.1) 0%, transparent 70%),
+                  radial-gradient(circle, rgba(255,102,0,0.1) 20%, transparent 80%);
+      animation: pulse 6s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+    }
+
     header img {
-      max-width: 300px;
+      max-width: 280px;
       margin-bottom: 2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin-bottom: 1rem;
       letter-spacing: 1px;
+      color: #ff6600;
+      z-index: 1;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #dddddd;
+      z-index: 1;
+    }
+
+    .contact {
+      font-size: 1.1rem;
       margin-bottom: 2rem;
-      color: #cccccc;
+      z-index: 1;
+      color: #ffffff;
+    }
+
+    .contact a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .social-icons {
+      z-index: 1;
     }
 
     .social-icons a {
       color: #ff6600;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
+      margin: 0 12px;
+      font-size: 1.6rem;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     .social-icons a:hover {
       color: #ffffff;
+      transform: scale(1.2);
     }
 
     footer {
@@ -60,19 +116,23 @@
       bottom: 20px;
       font-size: 0.9rem;
       color: #888888;
+      z-index: 1;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="./img/logo.png" alt="LUPA International Logo" />
+    <img src="/img/logo.png" alt="LUPA International Logo" />
     <h1>Website Coming Soon</h1>
-    <p>We are working hard to launch our new platform. Stay tuned!</p>
+    <p>We're crafting something exciting. Stay tuned for the launch!</p>
+    <div class="contact">
+      For inquiries, reach us at <a href="mailto:info@lupainternational.in">info@lupainternational.in</a>
+    </div>
     <div class="social-icons">
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/lupainternational" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="info@lupainternational.in" aria-label="Twitter"><i class="fab fa-at"></i></a>
+      <a href="https://www.instagram.com/lupainternational/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
   </header>
 
